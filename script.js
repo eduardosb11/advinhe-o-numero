@@ -9,11 +9,12 @@ const atualizarMensagem = (msg) => obterElemento("#mensagem").innerText = msg;
 const tentativasMaximas = 5;
 let tentativasRestantes = tentativasMaximas;
 let numeroSecreto = gerarNumeroSecreto();
-let jogoTerminou = false;
+let jogoTerminou = false; // O jogo termina quando o numero secreto é descoberto ou quando as tentativas acabam.
 
 const form = document.querySelector("form");
 form.addEventListener("submit", (event) => {
     event.preventDefault();
+    // Caso o jogo tenha terminado, não executa a função de chute
     if (jogoTerminou) {
         return;
     }
